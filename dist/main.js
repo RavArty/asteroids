@@ -91,9 +91,20 @@
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const MovingObject = __webpack_require__(/*! ./moving_objects */ \"./src/moving_objects.js\");\n\n//window.MovingObject = MovingObject;\n\nwindow.addEventListener('DOMContentLoaded', event => {\n  const canvasEl = document.getElementById('game-canvas');\n  const ctx = canvasEl.getContext('2d');\n  const obj = new MovingObject({\n    pos: [200, 200],\n    vel: [20, 20],\n    radius: 20,\n    color: '#000000'\n  });\n  obj.draw(ctx);\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/moving_objects.js":
+/*!*******************************!*\
+  !*** ./src/moving_objects.js ***!
+  \*******************************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log('Webpack is working!');\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("function MovingObject(options) {\n  this.pos = options.pos;\n  this.vel = options.vel;\n  this.radius = options.radius;\n  this.color = options.color;\n}\n\nMovingObject.prototype.draw = function(ctx){\n  ctx.fillStyle = this.color;\n  ctx.beginPath();\n\n  ctx.arc(\n    this.pos[0],\n    this.pos[1],\n    this.radius,\n    0,\n    2 * Math.PI,\n    false\n  );\n\n  ctx.fill();\n}\n\n\nmodule.exports = MovingObject;\n\n\n//# sourceURL=webpack:///./src/moving_objects.js?");
 
 /***/ })
 
